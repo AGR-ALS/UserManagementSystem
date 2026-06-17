@@ -20,7 +20,7 @@ public class UsersRepository : IUsersRepository
     
     public async Task<IEnumerable<User>> GetAllUsersSortedAsync(CancellationToken cancellationToken = default)
     {
-        return _mapper.Map<List<User>>(await _dbContext.Users.OrderBy(x => x.LastActivityTime).ToListAsync(cancellationToken));
+        return _mapper.Map<List<User>>(await _dbContext.Users.OrderByDescending(x => x.LastActivityTime).ToListAsync(cancellationToken));
     }
 
     public async Task<User?> GetUserByIdAsync(Guid id, CancellationToken cancellationToken = default)

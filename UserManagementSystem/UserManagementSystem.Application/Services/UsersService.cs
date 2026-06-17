@@ -61,11 +61,6 @@ public class UsersService : IUsersService
 
     public async Task RegisterUserAsync(string username, string email, string password, CancellationToken cancellationToken = default)
     {
-        
-        if ((await _usersRepository.GetUserByEmailAsync(email, cancellationToken)) != null)
-        {
-            throw new DuplicateValueException("Email address already exists");
-        }
         var hashedPassword = _passwordHasher.HashPassword(password);
         var user = new User(username, email, hashedPassword);
         try
@@ -74,7 +69,7 @@ public class UsersService : IUsersService
         }
         catch (Exception e)
         {
-            throw new EntityCreatingException(e.Message);
+            throw new EntityCreatingException(e.InnerException?.Message?? "Failed to create a user");
         }
     }
 

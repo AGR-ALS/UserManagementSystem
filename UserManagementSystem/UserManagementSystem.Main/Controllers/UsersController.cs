@@ -123,7 +123,7 @@ public class UsersController : Controller
                                                   throw new ArgumentNullException(viewModel.Username, "Username cannot be null"),
                 viewModel.Email, viewModel.Password, cancellationToken);
         }
-        catch (DuplicateValueException)
+        catch (EntityCreatingException)
         {
             ModelState.AddModelError(string.Empty, "Such email already exists");
             viewModel.IsRegistration = true;
