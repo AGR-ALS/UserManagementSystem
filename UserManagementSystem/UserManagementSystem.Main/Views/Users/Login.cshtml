@@ -1,0 +1,53 @@
+﻿@model UserManagementSystem.Main.Contracts.LoginUserViewModel
+
+@{
+    ViewData["Title"] = Model.IsRegistration ? "Sign in" : "Log in";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">@(Model.IsRegistration ? "Sign in" : "Log in")</h4>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Users" asp-action="@(Model.IsRegistration ? "RegisterUser" : "LoginUser")" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    @if (Model.IsRegistration)
+                    {
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label"></label>
+                            <input asp-for="Username" class="form-control" placeholder="Enter username" required />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                    }
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" type="email" placeholder="name@example.com" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" type="password" required />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            @(Model.IsRegistration ? "Sign in" : "Log in")
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center text-muted">
+                @if (Model.IsRegistration)
+                {
+                    <small>Have an account? <a asp-controller="Users" asp-action="Login">Log in</a></small>
+                }
+                else
+                {
+                    <small>Don't have an account? <a asp-controller="Users" asp-action="Register">Sign in</a></small>
+                }
+            </div>
+        </div>
+    </div>
+</div>

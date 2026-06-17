@@ -1,0 +1,82 @@
+﻿@model IEnumerable<UserManagementSystem.Domain.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-controller="Users" method="post" class="mb-4">
+            <div class="d-flex gap-2 flex-wrap">
+                <button type="submit" asp-action="BlockUsers" formmethod="post" class="btn btn-outline-primary" title="Block selected">
+                    <i class="bi bi-lock"></i>
+                    Block
+                </button>
+                <button type="submit" asp-action="UnblockUsers" formmethod="post" class="btn btn-outline-primary" title="Unblock selected">
+                    <i class="bi bi-unlock-fill"></i>
+                </button>
+                <button type="submit" asp-action="DeleteUsers" formmethod="post" class="btn btn-outline-danger" title="Delete selected">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+                <button type="submit" asp-action="DeleteUnverifiedUsers"  formmethod="post" class="btn btn-outline-danger" title="Delete all unverified users">
+                    <i class="bi bi-person-x-fill"></i>
+                </button>
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table table-hover table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="checkbox-column">
+                                <input type="checkbox" id="selectAll" class="form-check-input" />
+                            </th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Last Activity</th>
+                            <th>Status</th>
+                            <th>Registration Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="ids" value="@user.Id" class="form-check-input user-checkbox" />
+                                    </td>
+                                    <td>@user.Name</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.LastActivityTime.ToString("g")</td>
+                                    <td>
+                                        @{
+                                            if (!user.ActivityStatus)
+                                            {
+                                                <span class="badge bg-danger">Blocked</span>
+                                            }
+                                            else if (!user.VerificationStatus)
+                                            {
+                                                <span class="badge bg-success">Unverified</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-primary">Active</span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>@user.RegistrationTime.ToString("g")</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">No users found.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

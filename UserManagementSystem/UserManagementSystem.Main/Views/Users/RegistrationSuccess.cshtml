@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Registration Successful";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm text-center border-0">
+            <div class="card-body p-5">
+                <i class="bi bi-envelope-check text-success notification-icon"></i>
+                <h3 class="mt-4 fw-bold">Registration was successful!</h3>
+                <p class="text-muted mt-3 fs-5">
+                    An account confirmation message has been sent to your email address. Please check your mailbox and follow the activation link.
+                </p>
+                <a asp-controller="Users" asp-action="GetAllUsers" class="btn btn-primary btn-lg mt-4">
+                    <i class="bi bi-house-door me-2"></i>To the admin panel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

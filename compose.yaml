@@ -1,0 +1,62 @@
+﻿services:
+  user-management-system:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    container_name: user-management-system
+    image: user-management-system:1.0.0
+    build:
+      context: ./UserManagementSystem
+      dockerfile: Dockerfile
+    env_file:
+      - ./UserManagementSystem/.env
+    ports:
+      - "5085:8080"
+    depends_on:
+      - postgres-users-db
+      - rabbitmq
+
+  mailservice-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    container_name: mailservice.api
+    image: mailservice-api:1.0.0
+    build:
+      context: ./MailService
+      dockerfile: Dockerfile
+    env_file:
+      - ./MailService/.env
+    ports:
+      - "5027:8080"
+    depends_on:
+      - rabbitmq
+
+  postgres-users-db:
+    container_name: postgres-users-db
+    image: postgres:18.1-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${USERS_DB_NAME}
+    volumes:
+      - users-db-data:/var/lib/postgresql
+    ports:
+      - "5454:5432"
+  
+  rabbitmq:
+    image: rabbitmq:4.3-management-alpine
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    ports:
+      - "5672:5672"       
+      - "15672:15672"   
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+volumes:
+  users-db-data:
+  rabbitmq-data:
+

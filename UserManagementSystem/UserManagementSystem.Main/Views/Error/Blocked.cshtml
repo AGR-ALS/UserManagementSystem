@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Blocked";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm text-center border-0">
+            <div class="card-body p-5">
+                <i class="bi bi-exclamation-triangle-fill text-danger notification-icon"></i>
+                <h3 class="mt-4 fw-bold">You've been blocked</h3>
+                <p class="text-muted mt-3 fs-5">
+                    Contact site owner for more information.
+                </p>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg mt-4">
+                    <i class="bi bi-house-door me-2"></i>To the Main page
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

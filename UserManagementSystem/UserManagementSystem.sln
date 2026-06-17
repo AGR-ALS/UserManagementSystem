@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementSystem.Domain", "UserManagementSystem.Domain\UserManagementSystem.Domain.csproj", "{562FD348-FC02-48D9-BA89-F1F50A24C630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementSystem.Main", "UserManagementSystem.Main\UserManagementSystem.Main.csproj", "{2CDD8ED6-36AB-4824-8F5F-294403134B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementSystem.DataAccess", "UserManagementSystem.DataAccess\UserManagementSystem.DataAccess.csproj", "{E7A63F38-5C21-41C1-B845-1F4A507C6776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementSystem.Application", "UserManagementSystem.Application\UserManagementSystem.Application.csproj", "{E48EB3AE-6355-494C-8385-DC3A0CAAA2B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementSystem.Infrastructure", "UserManagementSystem.Infrastructure\UserManagementSystem.Infrastructure.csproj", "{FB461E7C-73F1-4AF6-93FE-AF5B23D884E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedResources.MessageContracts", "SharedResources.MessageContracts\SharedResources.MessageContracts.csproj", "{254CF0DA-0722-4EF6-9F97-24D146AB9974}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{562FD348-FC02-48D9-BA89-F1F50A24C630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562FD348-FC02-48D9-BA89-F1F50A24C630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562FD348-FC02-48D9-BA89-F1F50A24C630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562FD348-FC02-48D9-BA89-F1F50A24C630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDD8ED6-36AB-4824-8F5F-294403134B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDD8ED6-36AB-4824-8F5F-294403134B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDD8ED6-36AB-4824-8F5F-294403134B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDD8ED6-36AB-4824-8F5F-294403134B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A63F38-5C21-41C1-B845-1F4A507C6776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A63F38-5C21-41C1-B845-1F4A507C6776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A63F38-5C21-41C1-B845-1F4A507C6776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A63F38-5C21-41C1-B845-1F4A507C6776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48EB3AE-6355-494C-8385-DC3A0CAAA2B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48EB3AE-6355-494C-8385-DC3A0CAAA2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48EB3AE-6355-494C-8385-DC3A0CAAA2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48EB3AE-6355-494C-8385-DC3A0CAAA2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB461E7C-73F1-4AF6-93FE-AF5B23D884E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB461E7C-73F1-4AF6-93FE-AF5B23D884E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB461E7C-73F1-4AF6-93FE-AF5B23D884E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB461E7C-73F1-4AF6-93FE-AF5B23D884E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{254CF0DA-0722-4EF6-9F97-24D146AB9974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{254CF0DA-0722-4EF6-9F97-24D146AB9974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{254CF0DA-0722-4EF6-9F97-24D146AB9974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{254CF0DA-0722-4EF6-9F97-24D146AB9974}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
